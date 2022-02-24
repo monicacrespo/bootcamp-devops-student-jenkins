@@ -1,0 +1,41 @@
+pipeline {
+  agent {
+    docker {
+      image 'gradle'
+    }
+  }
+
+  stages {
+    
+   stage('Checkout code') {
+      steps {
+        echo "Checking out project"
+        // GIT checkout
+        checkout scm: [
+                $class: 'GitSCM',
+                branches: [[name: '*/main']], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [[$class: 'CleanCheckout']], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[url: 'https://github.com/monicacrespo/bootcamp-devops-student-jenkins.git']]
+        ]
+      }
+    }
+    stage('Compile') {
+      steps {      
+            echo "Compiling project"
+            sh '''
+            chmod +x gradlew
+            ./gradlew compileJava
+            '''       
+      }
+    }
+    stage('Unit Tests') {
+      steps {        
+          echo "Running unit tests" 
+          sh './gradlew test'
+        }
+      }
+    }
+  }
+}
