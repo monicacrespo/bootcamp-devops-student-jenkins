@@ -14,23 +14,25 @@ To run locally Jenkins and have the necessary dependencies availables we can bui
 
 ## Solution structure 
 
-```
-├── calculator
-│   ├── gradle
-│   ├── src
-│   ├── build.gradle
-│   ├── gradlew
-│   ├── gradlew.bat
-│   ├── README.md
-│   ├── settings.gradle
-│   ├── exercise1 (new)
-│   	├── Jenkinsfile (new)
-│   ├── exercise2 (new)
-│   	├── Jenkinsfile (new)
-├── gradle.Dockerfile
-├── README.md
-```
 
+```
+├── exercise1 (new)
+│   ├── Jenkinsfile (new)
+├── exercise2 (new)
+│   ├── Jenkinsfile (new)
+├── gradle
+│   ├── wrapper
+│   	├── gradle-wrapper.jar
+│   	├── gradle-wrapper.properties
+├── src
+├── build.gradle
+├── Dockerfile (gradle.Dockerfile)
+├── gradlew
+├── gradlew.bat
+├── README.md
+├── settings.gradle
+├── start_jenkins.sh (new)
+```
 
 ## Jenkins solution exercise1
 
