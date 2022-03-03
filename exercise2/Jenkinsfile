@@ -5,8 +5,7 @@ pipeline {
     }
   }
 
-  stages {
-    
+  stages {    
    stage('Checkout code') {
       steps {
         echo "Checking out project"
@@ -35,7 +34,6 @@ pipeline {
           echo "Running unit tests" 
           sh './gradlew test'
         }
-      }
     }
-  }
+  } 
 }
