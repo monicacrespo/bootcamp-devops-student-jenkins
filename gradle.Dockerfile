@@ -1,4 +1,4 @@
-FROM jenkinsci/blueocean:latest
+FROM jenkins/jenkins:lts
 
 USER root
 
@@ -14,6 +14,8 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y docker-ce-cli
 
 # Reference install gradle: https://medium.com/@migueldoctor/how-to-create-a-custom-docker-image-with-jdk8-maven-and-gradle-ddc90f41cee4
+
+RUN apt update
 
 # Gradle version
 ARG GRADLE_VERSION=6.6.1
