@@ -3,7 +3,7 @@ FROM jenkins/jenkins:lts
 USER root
 
 # Reference install gradle: https://medium.com/@migueldoctor/how-to-create-a-custom-docker-image-with-jdk8-maven-and-gradle-ddc90f41cee4
-RUN apk update
+RUN apt update
 
 # Gradle version
 ARG GRADLE_VERSION=6.6.1
