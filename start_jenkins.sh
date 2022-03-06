@@ -21,7 +21,7 @@ if [[ ! "$(docker volume ls --format '{{.Name}}' --filter name=^${DATA_VOLUME}$)
   echo jenkins data "$DATA_VOLUME"
 fi
 
-# StartDocker in Docker into jenkins network
+# Start Docker in Docker into jenkins network
 docker container run --name jenkins-docker --rm --detach \
     --privileged --network "$NETWORK" --network-alias docker \
     --env DOCKER_TLS_CERTDIR=/certs \
@@ -30,7 +30,7 @@ docker container run --name jenkins-docker --rm --detach \
     docker:dind
 
 # Start Jenkins in the same network
-docker container run --name jenkins --rm --detach \
+docker container run --name jenkins-gradle --rm --detach \
   --network "$NETWORK" --env DOCKER_HOST=tcp://docker:2376 \
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
   --volume "$DATA_VOLUME":/var/jenkins_home \
