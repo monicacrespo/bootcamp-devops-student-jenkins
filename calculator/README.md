@@ -11,7 +11,9 @@ Create a `Jenkinsfile` with a declarative pipeline declarativa with the followin
 To run locally Jenkins and have the necessary dependencies availables we can build an image from [this Dockerfile](gradle.Dockerfile)
  
 2. Modify the pipeline to use the Gradle Docker image as build runner
-
+  In order to execute Docker commands inside Jenkins nodes, download and run the docker:dind Docker image.
+  Docker and Docker Pipeline plugins must be installed
+  Use the Docker image gradle:6.6.1-jre14-openj9
 ## Solution structure 
 
 
@@ -196,5 +198,5 @@ cat exercise1/Jenkinsfile | curl --user lemoncode -X POST -F "jenkinsfile=<-" ht
 ```
 
 ```
-cat exercise2/Jenkinsfile | curl --user lemoncode -X POST -F "jenkinsfile=<-" http://localhost:8080/pipeline-model-converter/validate
+cat calculator/exercise2/Jenkinsfile | curl --user lemoncode -X POST -F "jenkinsfile=<-" http://localhost:8080/pipeline-model-converter/validate
 ```

@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 
 # Reference install gradle: https://medium.com/@migueldoctor/how-to-create-a-custom-docker-image-with-jdk8-maven-and-gradle-ddc90f41cee4
 
-RUN apt update
+RUN apt-get update
 
 # Gradle version
 ARG GRADLE_VERSION=6.6.1
@@ -40,3 +40,5 @@ RUN mkdir -p /usr/share/gradle /usr/share/gradle/ref \
 ENV GRADLE_VERSION 6.6.1
 ENV GRADLE_HOME /usr/bin/gradle
 ENV PATH $PATH:$GRADLE_HOME/bin
+
+USER jenkins

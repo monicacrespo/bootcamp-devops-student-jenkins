@@ -30,7 +30,7 @@ docker container run --name jenkins-docker --rm --detach \
     docker:dind
 
 # Start Jenkins in the same network
-docker container run --name jenkins-blueocean-gradle --rm --detach \
+docker container run --name jenkins-gradle --rm --detach \
   --network "$NETWORK" --env DOCKER_HOST=tcp://docker:2376 \
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
   --volume "$DATA_VOLUME":/var/jenkins_home \
@@ -38,6 +38,6 @@ docker container run --name jenkins-blueocean-gradle --rm --detach \
   --publish 8080:8080 --publish 50000:50000 "$IMAGE"
 
 # Ensure that script have permissions to be executed: chmod +x start_jenkins.sh
-# Build image from Dockerfile: docker build -t myjenkins-blueocean-gradle -f gradle.Dockerfile .
+# Build image from Dockerfile: docker build -t lemoncode/jenkins -f gradle.Dockerfile .
 # From previous image we can run custom Jenkins version as follows:
-# ./start_jenkins.sh myjenkins-blueocean-gradle jenkins jenkins-gradle-docker-certs jenkins-gradle-data
+# ./start_jenkins.sh lemoncode/jenkins jenkins jenkins-gradle-docker-certs jenkins-gradle-data
