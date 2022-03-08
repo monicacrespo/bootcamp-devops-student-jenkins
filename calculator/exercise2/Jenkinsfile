@@ -21,19 +21,23 @@ pipeline {
       }
     }
     stage('Compile') {
-      steps {      
+      steps {
+        dir('./calculator'){
             echo "Compiling project"
             sh '''
             chmod +x gradlew
             ./gradlew compileJava
-            '''       
+            '''
+        }    
       }
     }
     stage('Unit Tests') {
-      steps {        
+      steps {
+        dir('./calculator'){
           echo "Running unit tests" 
           sh './gradlew test'
         }
+      }
     }
   } 
 }
