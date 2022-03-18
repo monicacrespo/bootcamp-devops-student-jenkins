@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 The start_jenkins.sh script enables you to automate all the steps and is provided by [Lemoncode](https://github.com/Lemoncode/bootcamp-devops-lemoncode/tree/master/03-cd/01-jenkins/00-instalando-jenkins).
 
 
+![RunningJenkins](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/RunningJenkins.JPG)
+
 ### Steps in this order using WSL2 terminal
 1. Ensure that script have permissions to be executed: `chmod +x start_jenkins.sh`
 2. Build image from Dockerfile: `docker build -t lemoncode/jenkins .`
