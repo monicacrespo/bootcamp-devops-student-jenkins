@@ -1,3 +1,39 @@
+## Running Jenkins in docker
+
+### Environment
+These exercises are written based on the following requirements:
+
+•	Operating System: Windows 10
+•	Windows Subsystem for Linux: WSL2, Ubuntu-20.04
+•	Docker Desktop: v4.4.3
+
+### Dockerfile
+To run locally Jenkins and have the necessary dependencies availables you can build an image with Gradle from this [Dockerfile](gradle.Dockerfile) detailed in [Lemoncode](https://github.com/Lemoncode/bootcamp-devops-lemoncode/blob/master/03-cd/exercises/jenkins-resources/gradle.Dockerfile). The only change I have made has been the addition of Docker.
+
+```
+# Reference install customise official Jenkins Docker image: https://www.jenkins.io/doc/book/installing/docker/#downloading-and-running-jenkins-in-docker
+RUN apt-get update && apt-get install -y lsb-release
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+RUN apt-get update && apt-get install -y docker-ce-cli
+```
+
+
+The start_jenkins.sh script enables you to automate all the steps and is provided by [Lemoncode](https://github.com/Lemoncode/bootcamp-devops-lemoncode/tree/master/03-cd/01-jenkins/00-instalando-jenkins).
+
+
+### Steps in this order using WSL2 terminal
+1. Ensure that script have permissions to be executed: `chmod +x start_jenkins.sh`
+2. Build image from Dockerfile: `docker build -t lemoncode/jenkins .`
+3. Run Jenkins in Docker. From previous image we can run custom Jenkins version as follows:
+    `./start_jenkins.sh lemoncode/jenkins jenkins jenkins-docker-certs jenkins-data`
+4. Proceed to the [Post-installation setup wizard](https://www.jenkins.io/doc/book/installing/docker/#setup-wizard)
+
+ 
 ## Jenkins Exercises
 The following exercises and source code (Java + Gradle repository) to learn Jenkins have been provided by Lemoncode here https://github.com/Lemoncode/bootcamp-devops-lemoncode/tree/master/03-cd/exercises 
 
@@ -6,8 +42,6 @@ The following exercises and source code (Java + Gradle repository) to learn Jenk
 * **Checkout** download the source code from a remote repository, preferably GitHub.
 * **Compile** compile the source code by using `gradlew compileJava`
 * **Unit Tests** run the unit testsby using `gradlew test`
- 
-To run locally Jenkins and have the necessary dependencies availables you can build an image from [this Dockerfile](gradle.Dockerfile)
  
 2. Modify the pipeline to use the Gradle Docker image as build runner.
     * In order to execute Docker commands inside Jenkins nodes, download and run the docker:dind Docker image.
