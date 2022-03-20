@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Compile') {
       steps {
-        dir("$WORKSPACE/exercise2/calculator"){
+        dir("$WORKSPACE/calculator"){
             echo "Compiling project"
             sh '''
             chmod +x gradlew
