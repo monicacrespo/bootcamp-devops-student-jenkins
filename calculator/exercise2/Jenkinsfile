@@ -7,11 +7,7 @@ pipeline {
 
   stages {
     stage('Verify') {
-            steps {
-                sh '''
-                  docker --version                 
-                '''
-                sh 'printenv'
+            steps {              
                 sh 'ls -l "$WORKSPACE"'
             }
     }
