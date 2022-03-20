@@ -5,7 +5,16 @@ pipeline {
     }
   }
 
-  stages {    
+  stages {
+    stage('Verify') {
+            steps {
+                sh '''
+                  docker --version                 
+                '''
+                sh 'printenv'
+                sh 'ls -l "$WORKSPACE"'
+            }
+    }
    stage('Checkout code') {
       steps {
         echo "Checking out project"
@@ -22,7 +31,7 @@ pipeline {
     }
     stage('Compile') {
       steps {
-        dir('./calculator'){
+        dir('$WORKSPACE/exercise2/calculator'){
             echo "Compiling project"
             sh '''
             chmod +x gradlew
