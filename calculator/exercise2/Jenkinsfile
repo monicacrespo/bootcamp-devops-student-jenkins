@@ -38,7 +38,7 @@ pipeline {
     }
     stage('Unit Tests') {
       steps {
-        dir('./calculator'){
+        dir("$WORKSPACE/calculator"){
           echo "Running unit tests" 
           sh './gradlew test'
         }
