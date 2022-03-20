@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'gradle'
+    dockerfile {
+      filename 'gradle.Dockerfile'
     }
   }
 
@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Compile') {
       steps {
-        dir('$WORKSPACE/exercise2/calculator'){
+        dir("$WORKSPACE/exercise2/calculator"){
             echo "Compiling project"
             sh '''
             chmod +x gradlew
