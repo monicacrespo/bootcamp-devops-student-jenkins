@@ -7,10 +7,10 @@ pipeline {
 
   stages {
     stage('Verify') {
-            steps {              
-                sh 'ls -l "$WORKSPACE"'
-                docker --version
-            }
+      steps {   
+        sh 'ls -l "$WORKSPACE"'    
+        sh 'docker --version'                    
+      }
     }
    stage('Checkout code') {
       steps {
