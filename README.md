@@ -75,6 +75,13 @@ The following exercises and source code (Java + Gradle repository) to learn Jenk
 ├── start_jenkins.sh
 ```
 
+## Exercise Jenkins's pipelines
+![Pipeline Exercise1](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise1.JPG)
+
+![Pipeline Exercise2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise2.JPG)
+
+![Pipeline Exercises 1 And 2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercises1And2.JPG)
+
 ## Jenkins solution exercise1
 
 Browse the classic UI http://localhost:8080
