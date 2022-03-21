@@ -75,12 +75,6 @@ The following exercises and source code (Java + Gradle repository) to learn Jenk
 ├── start_jenkins.sh
 ```
 
-## Exercise Jenkins's pipelines
-![Pipeline Exercise1](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise1.JPG)
-
-![Pipeline Exercise2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise2.JPG)
-
-![Pipeline Exercises 1 And 2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercises1And2.JPG)
 
 ## Jenkins solution exercise1
 
@@ -94,7 +88,7 @@ Browse the classic UI http://localhost:8080
 6. Build Now
 7. Check
 
-Jenkinsfile
+Jenkinsfile script
 ```
 pipeline {
   agent any
@@ -140,6 +134,10 @@ pipeline {
 ```
 
 For the Checkout stage I have looked at https://plugins.jenkins.io/git-parameter/
+
+Pipeline Exercise1
+
+![Pipeline Exercise1](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise1.JPG)
 
 
 ## Jenkins solution exercise2
@@ -224,6 +222,9 @@ drwxr-xr-x 2 gradle gradle  4096 Mar 21 12:17 calculator@tmp
 [Pipeline] }
 [Pipeline] // stage
 ```
+Pipeline Exercise2
+
+![Pipeline Exercise2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercise2.JPG)
 
 Console Output
 ```
@@ -379,9 +380,13 @@ Finished: SUCCESS
 ```
 For using Docker with Pipeline I have looked at https://www.jenkins.io/doc/book/pipeline/docker/
 
+## Exercise Jenkins's pipelines
+Pipeline Exercise 1 and Exercise 2
+![Pipeline Exercises 1 And 2](https://github.com/monicacrespo/bootcamp-devops-student-jenkins/blob/main/PipelineExercises1And2.JPG)
+
 
 ## Jenkinsfile Validation
-This is what I have used to validate the Jenkinsfile
+This is the command I have used to validate the Jenkinsfile
 
 ```
 cat calculator/exercise1/Jenkinsfile | curl --user lemoncode -X POST -F "jenkinsfile=<-" http://localhost:8080/pipeline-model-converter/validate
