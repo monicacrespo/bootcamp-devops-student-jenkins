@@ -194,14 +194,6 @@ pipeline {
 
 For using Docker with Pipeline I have looked at https://www.jenkins.io/doc/book/pipeline/docker/
 
-```
-agent {
-    docker {     
-      image 'gradle'
-    }
-  }
-```
-
 
 ## Jenkinsfile Validation
 This is what I have used to validate the Jenkinsfile
